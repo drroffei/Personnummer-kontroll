@@ -29,8 +29,15 @@
             {
                 throw new Exception("Något gick fel vid beräkningen av kontrollsumman");
             }
-            Console.WriteLine($"Kontrollsumman är: {ControlSum}");
+            CompletePersonalNumber();
 
+        }
+
+        private void CompletePersonalNumber()
+        {
+            Personnummer.Add(ControlSum);
+            string outputString = string.Join("", Personnummer.ToArray());
+            Console.WriteLine($"Kontrollsumman är: {ControlSum} och kompletta personnr är: {outputString}");
         }
 
         private void CalcControlSum()
@@ -46,14 +53,14 @@
                 }
                 else
                 {
-                    sumOfDigits = item * multiplier;
+                    sumOfDigits += item * multiplier;
                 }
-                
+
                 if (multiplier == 2)
                 {
                     multiplier = 1;
                 }
-                if (multiplier == 1)
+                else
                 {
                     multiplier = 2;
                 }
