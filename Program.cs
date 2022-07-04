@@ -6,5 +6,5 @@ PersNr persnr = new PersNr();
 while (true)
 {
     persnr.RunProgram();
-    Console.WriteLine("Programet har körts klart\n");
+    Console.WriteLine("\nProgrammet startar om...\n");    
 }

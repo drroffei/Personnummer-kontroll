@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Personnummer_kontroll.Models
+﻿namespace Personnummer_kontroll.Models
 {
     public class PersNr
     {
@@ -25,6 +19,7 @@ namespace Personnummer_kontroll.Models
             if (!CheckValidPersNr())
             {
                 Console.WriteLine("Fel Månad/Datum");
+                return;
             }
             try
             {
@@ -63,7 +58,6 @@ namespace Personnummer_kontroll.Models
                     multiplier = 2;
                 }
             }
-            Console.WriteLine(sumOfDigits);
             ControlSum = (10 - (sumOfDigits % 10)) % 10;
         }
 
@@ -73,6 +67,7 @@ namespace Personnummer_kontroll.Models
             int month = (Personnummer[2] * 10) + Personnummer[3];
             if (month < 1 || month > 12)
             {
+                Console.WriteLine($"Månad kan inte vara: {month}");
                 return false;
             }
 
@@ -80,6 +75,7 @@ namespace Personnummer_kontroll.Models
             int date = (Personnummer[4] * 10) + Personnummer[5];
             if (date < 1 || date > 31)
             {
+                Console.WriteLine($"Dagen kan inte vara: {date}");
                 return false;
             }
 
